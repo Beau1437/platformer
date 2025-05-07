@@ -1,6 +1,5 @@
 extends CharacterBody2D
 class_name Player
-var dir: int = 1
 
 @onready
 var StateMachine = $StateMachine
@@ -22,5 +21,3 @@ func _process(delta: float) -> void:
 
 func start(pos):
 	position = pos
-	show()
-	$CollisionShape2D.disabled = false

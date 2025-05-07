@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7s7c2yjhvu1s"]
+[gd_scene load_steps=6 format=3 uid="uid://7s7c2yjhvu1s"]
 
 [ext_resource type="PackedScene" uid="uid://plgqppmsmbux" path="res://src/player/Player.tscn" id="1_wbfu4"]
 [ext_resource type="Script" uid="uid://c76stshie7bm" path="res://src/player/player.gd" id="2_xkndl"]
 [ext_resource type="Script" uid="uid://dydbd4yuehwp7" path="res://src/state_machine.gd" id="3_7omc5"]
 [ext_resource type="Script" uid="uid://02ygbsdefll5" path="res://src/walk.gd" id="4_km1yn"]
+[ext_resource type="Script" uid="uid://c7gq3y0tus8pl" path="res://src/fall.gd" id="5_km1yn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,3 +17,8 @@ starting_state = NodePath("Walk")
 
 [node name="Walk" type="Node" parent="Player/StateMachine"]
 script = ExtResource("4_km1yn")
+
+[node name="Fall" type="Node" parent="Player/StateMachine"]
+script = ExtResource("5_km1yn")
+
+[node name="StartPosition" type="Marker2D" parent="."]
