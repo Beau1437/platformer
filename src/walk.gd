@@ -1,5 +1,4 @@
 extends State
-var dir: int = 1
 
 @onready
 var fall_state: State = $"../Fall"
@@ -11,19 +10,13 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("move_left"):
 		parent.velocity.x = -move_speed
-		dir = -1
 	elif Input.is_action_pressed("move_right"):
 		parent.velocity.x =  move_speed
-		dir = 1
 	else:
 		parent.velocity.x = 0
 	return null
 
 func process_physics(delta: float) -> State:
-	if (parent.velocity.x > 0):
-		dir = 1
-	else:
-		dir = -1
 	if (!parent.is_on_floor()):
 		return fall_state
 	parent.move_and_slide()

@@ -9,10 +9,8 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("move_left"):
 		parent.velocity.x = -move_speed
-		parent.dir = -1
 	elif Input.is_action_pressed("move_right"):
 		parent.velocity.x =  move_speed
-		parent.dir = 1
 	else:
 		parent.velocity.x = 0
 	return null
