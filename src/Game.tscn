@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://7s7c2yjhvu1s"]
+[gd_scene load_steps=10 format=3 uid="uid://7s7c2yjhvu1s"]
 
 [ext_resource type="PackedScene" uid="uid://plgqppmsmbux" path="res://src/player/Player.tscn" id="1_wbfu4"]
 [ext_resource type="Script" uid="uid://c76stshie7bm" path="res://src/player/player.gd" id="2_xkndl"]
 [ext_resource type="Script" uid="uid://dydbd4yuehwp7" path="res://src/state_machine.gd" id="3_7omc5"]
-[ext_resource type="Script" uid="uid://02ygbsdefll5" path="res://src/walk.gd" id="4_km1yn"]
-[ext_resource type="Script" uid="uid://c7gq3y0tus8pl" path="res://src/fall.gd" id="5_km1yn"]
+[ext_resource type="Script" uid="uid://02ygbsdefll5" path="res://src/player/states/walk.gd" id="4_km1yn"]
+[ext_resource type="Script" uid="uid://c1piktfatj4qc" path="res://src/player/states/jump.gd" id="5_dbp7n"]
+[ext_resource type="Script" uid="uid://c7gq3y0tus8pl" path="res://src/player/states/fall.gd" id="5_km1yn"]
 [ext_resource type="Texture2D" uid="uid://cxc57mmobnbkx" path="res://src/icon.svg" id="6_eu8jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbp7n"]
@@ -13,6 +14,7 @@ texture = ExtResource("6_eu8jo")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
@@ -90,6 +92,9 @@ starting_state = NodePath("Walk")
 [node name="Walk" type="Node" parent="Player/StateMachine"]
 script = ExtResource("4_km1yn")
 
+[node name="Jump" type="Node" parent="Player/StateMachine"]
+script = ExtResource("5_dbp7n")
+
 [node name="Fall" type="Node" parent="Player/StateMachine"]
 script = ExtResource("5_km1yn")
 
@@ -97,5 +102,5 @@ script = ExtResource("5_km1yn")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_rgpsw")
