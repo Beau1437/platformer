@@ -14,7 +14,7 @@ func enter() -> void:
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("jump"):
-		parent.velocity.y -= parent.velocity.y / 2
+		parent.velocity.y = parent.velocity.y / 2
 	return null
 
 func process_physics(delta: float) -> State:

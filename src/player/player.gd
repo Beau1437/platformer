@@ -6,7 +6,6 @@ var StateMachine = $StateMachine
 
 var can_grab = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	StateMachine.init(self)
 
@@ -18,6 +17,3 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	StateMachine.process_frame(delta)
-
-func start(pos):
-	position = pos
