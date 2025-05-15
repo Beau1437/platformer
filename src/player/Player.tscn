@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://plgqppmsmbux"]
+[gd_scene load_steps=5 format=3 uid="uid://plgqppmsmbux"]
 
 [ext_resource type="Texture2D" uid="uid://cxc57mmobnbkx" path="res://src/icon.svg" id="1_tehm3"]
+[ext_resource type="PackedScene" uid="uid://d3j74ds28qvyd" path="res://src/player/gun/Gun.tscn" id="2_chb7w"]
+[ext_resource type="Script" uid="uid://d21w3fd275a6l" path="res://src/player/gun.gd" id="3_g641l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rwas"]
 size = Vector2(25.6, 26)
@@ -15,3 +17,7 @@ shape = SubResource("RectangleShape2D_0rwas")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(64, 65)
 texture = ExtResource("1_tehm3")
+
+[node name="Gun" parent="." instance=ExtResource("2_chb7w")]
+position = Vector2(89, 66)
+script = ExtResource("3_g641l")

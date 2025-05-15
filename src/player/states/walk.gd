@@ -7,6 +7,7 @@ var jump_state: State = $"../Jump"
 
 func enter() -> void:
 	super()
+	process_input(null)
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("move_left"):

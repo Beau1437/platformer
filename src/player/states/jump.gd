@@ -6,7 +6,7 @@ var fall_state: State = $"../Fall"
 var walk_state: State = $"../Walk"
 
 @export
-var jump_force = 500
+var jump_force = 700
 
 func enter() -> void:
 	super()
