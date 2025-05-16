@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7s7c2yjhvu1s"]
+[gd_scene load_steps=10 format=4 uid="uid://7s7c2yjhvu1s"]
 
 [ext_resource type="PackedScene" uid="uid://plgqppmsmbux" path="res://src/player/Player.tscn" id="1_wbfu4"]
 [ext_resource type="Script" uid="uid://c76stshie7bm" path="res://src/player/player.gd" id="2_xkndl"]
@@ -102,7 +102,7 @@ script = ExtResource("5_km1yn")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAD//wIAAAADAAAAAAD9/wQAAAADAAAAAAD2/wUAAAADAAAAAAD4/wEAAAADAAAAAAAGAAAAAAADAAAAAAAIAP3/AAADAAAAAAAJAAQAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_rgpsw")
 
 [node name="Camera2D" type="Camera2D" parent="."]

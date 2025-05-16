@@ -3,7 +3,7 @@ class_name State
 
 @export
 var move_speed = 400
-var gravity: int = 1500
+var gravity: int = 2000
 
 var parent: Player
 

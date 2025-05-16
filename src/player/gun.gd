@@ -16,4 +16,4 @@ func _process(delta: float) -> void:
 				bullet_instance.rotation = rotation + randf_range(0, 0.25)
 			else:
 				bullet_instance.rotation = rotation - randf_range(0, 0.25)
-			player.velocity -= Vector2(cos(rotation) * 500, sin(rotation) * 100)
+		player.velocity -= Vector2(cos(rotation) * 1200, sin(rotation) * 1200)
