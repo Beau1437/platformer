@@ -1,6 +1,8 @@
 extends Node2D
 
 var bullet = preload("res://src/player/gun/Bullet.tscn")
+@onready
+var player = $".."
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -14,3 +16,4 @@ func _process(delta: float) -> void:
 				bullet_instance.rotation = rotation + randf_range(0, 0.25)
 			else:
 				bullet_instance.rotation = rotation - randf_range(0, 0.25)
+			player.velocity -= Vector2(cos(rotation) * 500, sin(rotation) * 100)
