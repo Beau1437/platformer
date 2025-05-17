@@ -6,7 +6,7 @@ var stack: Array
 func push(data) -> void:
 	stack.push_front(data)
 
-func pop(data):
+func pop():
 	return stack.pop_front()
 
 func size() -> int:

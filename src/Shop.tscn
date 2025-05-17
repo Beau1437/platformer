@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://yjllyd0lqiud"]
+
+[ext_resource type="Script" uid="uid://chmghlc07n5hb" path="res://src/shop.gd" id="1_d4ikw"]
+[ext_resource type="Texture2D" uid="uid://cvmmdjrbihap1" path="res://src/art/shell_red.png" id="1_hwtwc"]
+[ext_resource type="Texture2D" uid="uid://bk3bcyh2tsgiu" path="res://src/art/shell_blue.png" id="2_xon3k"]
+[ext_resource type="Texture2D" uid="uid://6u07tmkq5vni" path="res://src/art/shell_green.png" id="3_d4ikw"]
+[ext_resource type="Script" uid="uid://7k8kwuaiy07c" path="res://src/color_rect.gd" id="5_i5wuj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pv447"]
+font_size = 170
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5wuj"]
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_qcki6"]
+font_size = 100
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -668.0
+offset_bottom = 963.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d4ikw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 482.0
+offset_bottom = 1616.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 473.0
+offset_bottom = 232.0
+text = "SHOP"
+label_settings = SubResource("LabelSettings_pv447")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 254.0
+offset_right = 439.0
+offset_bottom = 379.0
+texture = ExtResource("1_hwtwc")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 445.0
+offset_right = 436.0
+offset_bottom = 570.0
+texture = ExtResource("2_xon3k")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 636.0
+offset_right = 439.0
+offset_bottom = 761.0
+texture = ExtResource("3_d4ikw")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 509.0
+offset_top = 241.0
+offset_right = 873.0
+offset_bottom = 401.0
+color = Color(0.241156, 0.241156, 0.241156, 1)
+script = ExtResource("5_i5wuj")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -3.0
+offset_right = 332.0
+offset_bottom = 152.0
+text = "Red Shell
+$0"
+label_settings = SubResource("LabelSettings_i5wuj")
+
+[node name="Balance" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 1477.0
+offset_right = 376.0
+offset_bottom = 1614.0
+text = "$0"
+label_settings = SubResource("LabelSettings_qcki6")
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect2" to="." method="_on_texture_rect_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="TextureRect2" to="." method="_on_texture_rect_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect3" to="." method="_on_texture_rect_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="TextureRect3" to="." method="_on_texture_rect_mouse_exited"]

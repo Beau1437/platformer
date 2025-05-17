@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkhcunsbdr8tc"]
+
+[ext_resource type="Script" uid="uid://v1mx6keqcguw" path="res://src/button.gd" id="1_pxux1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5euo"]
+font_size = 125
+font_color = Color(1, 0, 0, 1)
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 169.0
+offset_right = 885.0
+offset_bottom = 369.0
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_g5euo")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 356.0
+offset_right = 669.0
+offset_bottom = 421.0
+text = "Play Again?"
+script = ExtResource("1_pxux1")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

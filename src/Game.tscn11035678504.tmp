@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=4 uid="uid://7s7c2yjhvu1s"]
+
+[ext_resource type="PackedScene" uid="uid://plgqppmsmbux" path="res://src/player/Player.tscn" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://c76stshie7bm" path="res://src/player/player.gd" id="2_xkndl"]
+[ext_resource type="Script" uid="uid://dydbd4yuehwp7" path="res://src/state_machine.gd" id="3_7omc5"]
+[ext_resource type="Script" uid="uid://02ygbsdefll5" path="res://src/player/states/walk.gd" id="4_km1yn"]
+[ext_resource type="Script" uid="uid://c1piktfatj4qc" path="res://src/player/states/jump.gd" id="5_dbp7n"]
+[ext_resource type="Script" uid="uid://c7gq3y0tus8pl" path="res://src/player/states/fall.gd" id="5_km1yn"]
+[ext_resource type="Texture2D" uid="uid://cxc57mmobnbkx" path="res://src/icon.svg" id="6_eu8jo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbp7n"]
+texture = ExtResource("6_eu8jo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rgpsw"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_dbp7n")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wbfu4")]
+script = ExtResource("2_xkndl")
+
+[node name="StateMachine" type="Node" parent="Player" node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_7omc5")
+starting_state = NodePath("Walk")
+
+[node name="Walk" type="Node" parent="Player/StateMachine"]
+script = ExtResource("4_km1yn")
+
+[node name="Jump" type="Node" parent="Player/StateMachine"]
+script = ExtResource("5_dbp7n")
+
+[node name="Fall" type="Node" parent="Player/StateMachine"]
+script = ExtResource("5_km1yn")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAD//wIAAAADAAAAAAD9/wQAAAADAAAAAAD2/wUAAAADAAAAAAD4/wEAAAADAAAAAAAGAAAAAAADAAAAAAAIAP3/AAADAAAAAAAJAAQAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_rgpsw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(60, 60)
+zoom = Vector2(0.4, 0.4)

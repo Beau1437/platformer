@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://plgqppmsmbux"]
+[gd_scene load_steps=6 format=3 uid="uid://plgqppmsmbux"]
 
 [ext_resource type="Texture2D" uid="uid://cxc57mmobnbkx" path="res://src/icon.svg" id="1_tehm3"]
 [ext_resource type="PackedScene" uid="uid://d3j74ds28qvyd" path="res://src/player/gun/Gun.tscn" id="2_chb7w"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rwas"]
 size = Vector2(25.6, 26)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g641l"]
+font_size = 100
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -21,3 +24,14 @@ texture = ExtResource("1_tehm3")
 [node name="Gun" parent="." instance=ExtResource("2_chb7w")]
 position = Vector2(62, 65)
 script = ExtResource("3_g641l")
+
+[node name="AmmoCounter" type="Label" parent="Gun"]
+top_level = true
+offset_left = 1215.0
+offset_top = 690.0
+offset_right = 1478.0
+offset_bottom = 870.0
+text = "8/8"
+label_settings = SubResource("LabelSettings_g641l")
+horizontal_alignment = 2
+vertical_alignment = 2
