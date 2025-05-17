@@ -19,5 +19,5 @@ position = Vector2(64, 65)
 texture = ExtResource("1_tehm3")
 
 [node name="Gun" parent="." instance=ExtResource("2_chb7w")]
-position = Vector2(89, 66)
+position = Vector2(62, 65)
 script = ExtResource("3_g641l")

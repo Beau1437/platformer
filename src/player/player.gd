@@ -4,8 +4,6 @@ class_name Player
 @onready
 var StateMachine = $StateMachine
 
-var can_grab = true
-
 func _ready() -> void:
 	StateMachine.init(self)
 

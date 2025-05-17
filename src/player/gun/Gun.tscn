@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3j74ds28qvyd"]
 
-[ext_resource type="Texture2D" uid="uid://cxc57mmobnbkx" path="res://src/icon.svg" id="1_ib3hw"]
+[ext_resource type="Texture2D" uid="uid://tpx0xrrhhp25" path="res://src/art/shotgun.png" id="1_ib3hw"]
 
 [node name="Gun" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.953125, 0.214844)
+position = Vector2(-3.8147e-06, -1)
+scale = Vector2(0.232265, 0.214844)
 texture = ExtResource("1_ib3hw")
