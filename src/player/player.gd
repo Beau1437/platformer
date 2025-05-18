@@ -11,7 +11,6 @@ var shop = $"../Shop"
 var balance = 0
 
 var DeathScreen = preload("res://src/DeathScreen.tscn")
-var WinScreen = preload("res://src/WinScreen.tscn")
 
 func _ready() -> void:
 	StateMachine.init(self)
@@ -29,13 +28,11 @@ func die():
 	get_tree().change_scene_to_packed(DeathScreen)
 
 func win():
-	get_tree().change_scene_to_packed(WinScreen)
+	get_tree().change_scene_to_file("res://src/WinScreen.tscn")
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		die()
-
-
 
 func _on_shop_mouse_entered() -> void:
 	gun.in_shop = true
