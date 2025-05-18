@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y += delta * move_speed
 
+signal game_end()
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var bullet = area.get_parent()
 	if bullet is Bullet:
@@ -51,6 +53,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		player.add_funds(bullet.damage)
 		bullet.queue_free()
 		if health <= 0:
-			var win_screen: PackedScene = preload("res://src/WinScreen.tscn")
 			win = true
-			get_tree().change_scene_to_packed(win_screen)
+			game_end.emit()
