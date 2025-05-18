@@ -5,6 +5,10 @@
 [node name="Gun" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(60, -29)
 scale = Vector2(0.232265, 0.214844)
 texture = ExtResource("1_ib3hw")
+
+[node name="BarrelExit" type="Marker2D" parent="."]
+position = Vector2(146, -6)

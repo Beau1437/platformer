@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 					bullet_instance.damage = damage
 					bullet_instance.speed = speed
 					get_tree().root.add_child(bullet_instance)
-					bullet_instance.global_position = global_position
+					bullet_instance.global_position = $BarrelExit.global_position
 					if randf_range(1,2) > 1.5:
 						bullet_instance.rotation = rotation + randf_range(0, 0.25)
 					else:
