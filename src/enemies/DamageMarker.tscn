@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckublqi0rdurj"]
+
+[ext_resource type="Script" uid="uid://b5h2r6iic8ksg" path="res://src/enemies/damage_marker.gd" id="1_2h6fs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yin07"]
+font_size = 50
+font_color = Color(0, 0.811765, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2h6fs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 28.0
+text = "+$"
+label_settings = SubResource("LabelSettings_yin07")

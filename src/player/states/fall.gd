@@ -9,9 +9,9 @@ func enter() -> void:
 	super()
 
 func process_input(event: InputEvent) -> State:
-	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	if abs(parent.velocity.x) <= move_speed:
-		parent.velocity.x = movement
+		var movement = Input.get_axis("move_left", "move_right")
+		parent.velocity.x = movement * move_speed
 	return null
 
 func process_physics(delta: float) -> State:

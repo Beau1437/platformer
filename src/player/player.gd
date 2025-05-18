@@ -5,6 +5,8 @@ class_name Player
 var StateMachine = $StateMachine
 @onready
 var gun = $Gun
+@onready
+var shop = $"../Shop"
 
 var balance = 0
 
@@ -26,7 +28,8 @@ func die():
 	get_tree().change_scene_to_packed(DeathScreen)
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
-	die()
+	if body is Player:
+		die()
 
 func _on_shop_mouse_entered() -> void:
 	gun.in_shop = true
@@ -37,14 +40,19 @@ func _on_shop_mouse_exited() -> void:
 func _on_shop_purchase(type) -> void:
 	if buy(type) && gun.clip_size() < 8:
 		gun.add_shell(type)
+		shop.set_balance(balance)
+
+func add_funds(amount: int) -> void:
+	balance += amount
+	shop.set_balance(balance)
 	
 func buy(type: int) -> bool:
 	if type == 1:
 		return true
-	elif type == 2 && balance >= 10:
-		balance -= 10
-		return true
-	elif type == 3 && balance >= 50:
+	elif type == 2 && balance >= 50:
 		balance -= 50
+		return true
+	elif type == 3 && balance >= 200:
+		balance -= 200
 		return true
 	return false

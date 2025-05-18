@@ -29,7 +29,7 @@ script = ExtResource("1_d4ikw")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 482.0
-offset_bottom = 1616.0
+offset_bottom = 849.0
 mouse_filter = 1
 
 [node name="Label" type="Label" parent="."]

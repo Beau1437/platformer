@@ -1,28 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://plgqppmsmbux"]
+[gd_scene load_steps=7 format=3 uid="uid://plgqppmsmbux"]
 
-[ext_resource type="Texture2D" uid="uid://cxc57mmobnbkx" path="res://src/icon.svg" id="1_tehm3"]
+[ext_resource type="Texture2D" uid="uid://5dnln3q2syx1" path="res://src/art/player.png" id="1_g641l"]
 [ext_resource type="PackedScene" uid="uid://d3j74ds28qvyd" path="res://src/player/gun/Gun.tscn" id="2_chb7w"]
 [ext_resource type="Script" uid="uid://d21w3fd275a6l" path="res://src/player/gun.gd" id="3_g641l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rwas"]
-size = Vector2(25.6, 26)
+size = Vector2(27, 27.9625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g641l"]
+atlas = ExtResource("1_g641l")
+region = Rect2(78.3871, 13.2785, 1195.46, 1018.56)
 
 [sub_resource type="LabelSettings" id="LabelSettings_g641l"]
 font_size = 100
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(31, -99)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 65)
+position = Vector2(-37.5, 87.9063)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_0rwas")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(64, 65)
-texture = ExtResource("1_tehm3")
+position = Vector2(-27, 89.3125)
+scale = Vector2(0.164154, 0.142068)
+texture = SubResource("AtlasTexture_g641l")
+hframes = 2
 
 [node name="Gun" parent="." instance=ExtResource("2_chb7w")]
-position = Vector2(62, 65)
+position = Vector2(-23, 101)
 script = ExtResource("3_g641l")
 
 [node name="AmmoCounter" type="Label" parent="Gun"]

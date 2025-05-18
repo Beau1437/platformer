@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfgnar3c6kb7y"]
+
+[ext_resource type="Texture2D" uid="uid://dgfwitpm4ljka" path="res://src/art/green_guy_body.png" id="1_jxpym"]
+[ext_resource type="Script" uid="uid://d15hdymktdg4w" path="res://src/enemies/green_guy.gd" id="1_p1v0l"]
+[ext_resource type="Texture2D" uid="uid://hl26587wbqpj" path="res://src/art/green_guy_eye.png" id="3_tg0g1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmmfj"]
+radius = 95.0842
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1v0l"]
+radius = 72.6697
+
+[node name="Node2D" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 2
+script = ExtResource("1_p1v0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.85332, 4.82722)
+scale = Vector2(0.249479, 0.254167)
+texture = ExtResource("1_jxpym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.146679, 0.827217)
+shape = SubResource("CircleShape2D_jmmfj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-41.1467, -42.1728)
+texture = ExtResource("3_tg0g1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(60.8533, -40.1728)
+texture = ExtResource("3_tg0g1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p1v0l")
+debug_color = Color(0.988746, 0, 0.298488, 0.42)
+
+[node name="BossHealth" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BossHealth"]
+layout_mode = 0
+offset_left = -1121.0
+offset_top = 830.0
+offset_right = 1241.0
+offset_bottom = 870.0
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

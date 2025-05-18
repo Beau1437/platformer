@@ -27,9 +27,9 @@ func process_physics(delta: float) -> State:
 	if !parent.velocity.y <= 0:
 		return fall_state
 
-	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	if abs(parent.velocity.x) <= move_speed:
-		parent.velocity.x = movement
+		var movement = Input.get_axis("move_left", "move_right")
+		parent.velocity.x = movement * move_speed
 	
 	parent.move_and_slide()
 	return null

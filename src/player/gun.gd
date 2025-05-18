@@ -3,6 +3,8 @@ extends Node2D
 @onready
 var player = $".."
 @onready
+var player_sprite = $"../Sprite2D"
+@onready
 var ammo_counter = $AmmoCounter
 
 var clip: Stack = Stack.new()
@@ -27,8 +29,10 @@ func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if cos(rotation) < -0.25:
 		scale.y = -1
+		player_sprite.frame = 1
 	elif cos(rotation) > 0.25:
 		scale.y = 1
+		player_sprite.frame = 0
 	if Input.is_action_just_pressed("shoot") && can_shoot && !in_shop && clip.size() != 0:
 		var type: int = clip.pop()
 		bullet = bullet_properties(type)
@@ -64,15 +68,15 @@ func bullet_properties(type: int) -> PackedScene:
 		damage = 5
 		return red_bullet
 	elif type == 2:
-		reload_speed = 0.4
+		reload_speed = 0.1
 		speed = 2000
 		num_bullets = 4
 		damage = 20
 		return blue_bullet
-	reload_speed = 0.8
-	speed = 3000
+	reload_speed = 1
+	speed = 1500
 	num_bullets = 2
-	damage = 200
+	damage = 100
 	return green_bullet
 
 func clip_size():
