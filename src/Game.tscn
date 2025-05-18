@@ -71,11 +71,11 @@ position = Vector2(-11, -4904)
 shape = SubResource("RectangleShape2D_rgpsw")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(2560, -1859)
+position = Vector2(2399, -1841)
 shape = SubResource("RectangleShape2D_x2540")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(-2539, -1864)
+position = Vector2(-2360, -1846)
 shape = SubResource("RectangleShape2D_x2540")
 
 [node name="Shop" parent="." instance=ExtResource("7_x2540")]
