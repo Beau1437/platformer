@@ -25,7 +25,7 @@ func _init():
 	for n in 8:
 		clip.push(1)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if cos(rotation) < -0.25:
 		scale.y = -1

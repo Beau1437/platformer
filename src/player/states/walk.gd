@@ -9,7 +9,7 @@ func enter() -> void:
 	super()
 	process_input(null)
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if Input.is_action_pressed("move_left"):
 		parent.velocity.x = -move_speed
 	elif Input.is_action_pressed("move_right"):
@@ -20,7 +20,7 @@ func process_input(event: InputEvent) -> State:
 		return jump_state
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	if (!parent.is_on_floor()):
 		return fall_state
 	parent.move_and_slide()

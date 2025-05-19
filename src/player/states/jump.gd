@@ -12,7 +12,7 @@ func enter() -> void:
 	super()
 	parent.velocity.y -= jump_force
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_released("jump"):
 		parent.velocity.y = parent.velocity.y / 2
 	return null

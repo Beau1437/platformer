@@ -7,6 +7,6 @@ func _ready():
 	tween.tween_property($Label, "modulate:a", 0, 1)
 	tween.tween_callback(self.queue_free)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if damage:
 		$Label.text = str("+$", damage)

@@ -8,7 +8,7 @@ var jump_state: State = $"../Jump"
 func enter() -> void:
 	super()
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if abs(parent.velocity.x) <= move_speed:
 		var movement = Input.get_axis("move_left", "move_right")
 		parent.velocity.x = movement * move_speed

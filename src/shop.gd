@@ -7,15 +7,15 @@ var balance_counter = $Balance
 var type
 var on_shell = false
 
-func _on_texture_rect_mouse_entered(type: int) -> void:
-	self.type = type
+func _on_texture_rect_mouse_entered(t: int) -> void:
+	type = t
 	on_shell = true
 	rect.set_type(type)
 	rect.show()
 
 signal purchase(t)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if on_shell && Input.is_action_just_pressed("purchase"):
 			purchase.emit(type)
 	rect.position.y = get_local_mouse_position().y - 20
